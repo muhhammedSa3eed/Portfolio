@@ -186,69 +186,59 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import emailjs from '@emailjs/browser';
-import Giscus from '@giscus/vue';
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import emailjs from "@emailjs/browser";
+import Giscus from "@giscus/vue";
 
 const contactSectionRef = ref(null);
 let observer = null;
 
 const findMeLinks = ref([
   {
-    name: 'GitHub',
-    href: 'https://github.com/alin00r',
-    image: '/github.svg',
+    name: "GitHub",
+    href: "https://github.com/muhhammedSa3eed",
+    image: "/github.svg",
   },
   {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/alinourr',
-    image: '/linkedin.svg',
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/muhhammed--ahmed/",
+    image: "/linkedin.svg",
   },
   {
-    name: 'YouTube',
-    href: 'https://www.youtube.com/',
-    image: '/yt.svg',
+    name: "Instagram",
+    href: "https://www.instagram.com/mohamed_ahmed_013/",
+    image: "/instagram.svg",
   },
   {
-    name: 'Instagram',
-    href: 'https://instagram.com/alinoourr',
-    image: '/instagram.svg',
-  },
-  {
-    name: 'TikTok',
-    href: 'https://www.tiktok.com/',
-    image: '/tiktok.svg',
-  },
-  {
-    name: 'Email',
-    href: 'mailto:alymohameedaly@gmail.com',
-    image: '/gmail.svg',
+    name: "Email",
+    href: "mailto:mohamedsa3eed013@gmail.com",
+    image: "/gmail.svg",
   },
 ]);
 
 const gamingLinks = ref([
-  { name: 'Discord', href: '#', image: '/discord.svg' },
+  { name: "Discord", href: "#", image: "/discord.svg" },
   {
-    name: 'Steam',
-    href: '#',
-    image: '/steam.svg',
+    name: "Steam",
+    href: "#",
+    image: "/steam.svg",
   },
-  { name: 'Spotify', href: '#', image: '/spotify.svg' },
+  { name: "Spotify", href: "#", image: "/spotify.svg" },
 ]);
 
 const formRef = ref(null);
 const isLoading = ref(false);
-const statusMessage = ref('');
-const statusType = ref('');
-const form = ref({ name: '', email: '', message: '' });
+const statusMessage = ref("");
+const statusType = ref("");
+const form = ref({ name: "", email: "", message: "" });
 
 const sendEmail = () => {
   isLoading.value = true;
-  statusMessage.value = '';
+  statusMessage.value = "";
 
-  const SERVICE_ID = 'service_7emwf5t';
-  const TEMPLATE_ID = 'template_t6o7i0u';
-  const PUBLIC_KEY = 'H8FxBHrrPtSfbnc_F';
+  const SERVICE_ID = "service_et6aw67";
+  const TEMPLATE_ID = "template_uxejm2m";
+  const PUBLIC_KEY = "6qO9YiiiFcM1hUbs4";
 
   const templateParams = {
     name: form.value.name,
@@ -260,19 +250,19 @@ const sendEmail = () => {
     .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
     .then(
       (result) => {
-        statusMessage.value = 'Message sent successfully!';
-        statusType.value = 'success';
-        form.value = { name: '', email: '', message: '' };
+        statusMessage.value = "Message sent successfully!";
+        statusType.value = "success";
+        form.value = { name: "", email: "", message: "" };
       },
       (error) => {
-        statusMessage.value = 'Failed to send message.';
-        statusType.value = 'error';
+        statusMessage.value = "Failed to send message.";
+        statusType.value = "error";
       }
     )
     .finally(() => {
       isLoading.value = false;
       setTimeout(() => {
-        statusMessage.value = '';
+        statusMessage.value = "";
       }, 5000);
     });
 };
@@ -282,9 +272,9 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
+          entry.target.classList.add("in-view");
         } else {
-          entry.target.classList.remove('in-view');
+          entry.target.classList.remove("in-view");
         }
       });
     },
@@ -408,7 +398,7 @@ onBeforeUnmount(() => {
   background: #0f0f0f;
   border: 1px solid #374151;
   color: var(--text-white);
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -439,7 +429,7 @@ onBeforeUnmount(() => {
   color: #000;
   border: none;
   transition: all 0.3s ease;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
