@@ -791,4 +791,114 @@ onBeforeUnmount(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
+/* ===== PROFESSIONAL LIGHT MODE STYLES ===== */
+
+/* Light mode section title */
+.light .section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .subtitle {
+  color: #64748b;
+}
+
+/* Light mode navigation tabs */
+.light .portfolio-nav button {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+}
+
+.light .portfolio-nav button:hover {
+  background: #f1f5f9;
+  color: #1a202c;
+  border-color: #cbd5e1;
+}
+
+.light .portfolio-nav button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+/* Light mode cards */
+.light .project-card,
+.light .certificate-card,
+.light .tech-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.light .project-card:hover,
+.light .certificate-card:hover,
+.light .tech-item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
+}
+
+/* Light mode project details */
+.light .project-image-wrapper {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.light .project-desc {
+  color: #64748b;
+}
+
+.light .btn-link {
+  color: #475569;
+}
+
+.light .btn-link:hover {
+  color: #2563eb;
+}
+
+/* Light mode tech items */
+.light .tech-item:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.light .tech-name {
+  color: #1a202c;
+}
+
+.light .tech-icon {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.05));
+}
+
+/* Light mode see more button */
+.light .btn-see-more {
+  color: #2563eb;
+  border: 2px solid #2563eb;
+}
+
+.light .btn-see-more:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* Light mode coming soon */
+.light .project-card.coming-soon {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.light .coming-soon-overlay span {
+  background: #2563eb;
+  color: #ffffff;
+  border: 2px solid #1e40af;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
+}
+
+.light .cert-issuer {
+  color: #64748b;
+}
 </style>

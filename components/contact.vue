@@ -149,7 +149,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import emailjs from "@emailjs/browser";
-import Giscus from "@giscus/vue";
 
 const contactSectionRef = ref(null);
 let observer = null;
@@ -526,5 +525,112 @@ onBeforeUnmount(() => {
   .card-glass {
     padding: 1.5rem;
   }
+}
+
+/* ===== PROFESSIONAL LIGHT MODE STYLES ===== */
+
+.light .section-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light .subtitle {
+  color: #64748b;
+}
+
+.light .card-glass {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.light .card-glass:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+}
+
+.light .column-header {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.light .icon-wrapper {
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.light .column-title {
+  color: #1a202c;
+}
+
+.light .form-group label {
+  color: #64748b;
+}
+
+.light .form-group input,
+.light .form-group textarea {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #1a202c;
+}
+
+.light .form-group input:focus,
+.light .form-group textarea:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.light .form-group input::placeholder,
+.light .form-group textarea::placeholder {
+  color: #94a3b8;
+}
+
+.light .btn-submit {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.light .btn-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5568d3 0%, #6a4190 100%);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.light .guestbook-desc {
+  color: #64748b;
+}
+
+.light .giscus-wrapper {
+  background: rgba(241, 245, 249, 0.5);
+}
+
+.light .bottom-grid {
+  border-top: 1px solid #e2e8f0;
+}
+
+.light .footer-col-title {
+  color: #2563eb;
+}
+
+.light .social-link {
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.light .social-link:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.light .social-icon {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(8%) saturate(876%)
+    hue-rotate(182deg) brightness(95%) contrast(92%);
+}
+
+.light .social-link:hover .social-icon {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1265%)
+    hue-rotate(213deg) brightness(95%) contrast(99%);
 }
 </style>

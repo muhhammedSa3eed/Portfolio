@@ -1,23 +1,68 @@
 /* RESET TOTAL */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box; /* Wajib ada biar padding gak nambah lebar elemen */
   margin: 0;
   padding: 0;
   outline: none;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden; /* Mencegah scroll ke samping */
 }
 
 :root {
-  --pikachu-yellow: #FFD700;
-  --pikachu-light: #FFEE58;
-  --neon-blue: #00FFFF;
-  --active-yellow: #FFC300;
+  --pikachu-yellow: #ffd700;
+  --pikachu-light: #ffee58;
+  --neon-blue: #00ffff;
+  --active-yellow: #ffc300;
   --text-white: #f0f0f0;
   --bg-dark: #1a1a1a;
+  --text-dark: #1a1a1a;
+  --bg-light: #ffffff;
+  --navbar-bg: rgba(31, 41, 55, 0.4);
+  --navbar-border: rgba(255, 255, 255, 0.05);
+  --mobile-menu-bg: rgba(31, 41, 55, 0.25);
+  --mobile-menu-border: rgba(255, 255, 255, 0.1);
+  --text-secondary: #d1d5db;
+  --footer-bg: rgba(14, 14, 14, 0.95);
+  --footer-text: #999;
+  --tech-bg: rgba(31, 51, 55, 0.5);
+  --social-bg: rgba(31, 41, 55, 0.5);
+  --badge-bg: rgba(255, 94, 0, 0.15);
+  --badge-border: rgba(234, 191, 51, 0.3);
+  --badge-color: rgb(231, 192, 19);
+}
+
+.light {
+  --bg-dark: #ffffff;
+  --text-white: #1a202c;
+  --pikachu-yellow: #2563eb;
+  --pikachu-light: #dbeafe;
+  --neon-blue: #2563eb;
+  --active-yellow: #1d4ed8;
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-border: rgba(226, 232, 240, 0.8);
+  --mobile-menu-bg: rgba(255, 255, 255, 0.98);
+  --mobile-menu-border: rgba(226, 232, 240, 0.8);
+  --text-secondary: #64748b;
+  --footer-bg: rgba(248, 250, 252, 0.98);
+  --footer-text: #64748b;
+  --tech-bg: rgba(241, 245, 249, 0.8);
+  --social-bg: rgba(241, 245, 249, 0.8);
+  --badge-bg: rgba(37, 99, 235, 0.08);
+  --badge-border: rgba(37, 99, 235, 0.2);
+  --badge-color: #2563eb;
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
 }
 
 html {
@@ -25,10 +70,11 @@ html {
 }
 
 body {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-white);
   line-height: 1.6;
+  transition: background-color 0.5s ease, color 0.5s ease;
   overflow-x: hidden;
   position: relative;
   /* Membuat font lebih tajam di browser modern */
@@ -39,21 +85,32 @@ body {
 /* ===== Backgrounds ===== */
 /* Lapisan Grid Kotak-kotak */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:
-    linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+  background-image: linear-gradient(
+      rgba(255, 215, 0, 0.05) 1px,
+      transparent 1px
+    ),
     linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
   background-size: 80px 80px;
   animation: gridPulse 8s ease-in-out infinite;
   z-index: -2;
-  /* Optimasi performa render */
   will-change: transform, opacity;
   pointer-events: none;
+}
+
+/* Light mode subtle grid pattern */
+.light body::before {
+  background-image: linear-gradient(
+      rgba(148, 163, 184, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 /* Partikel Parallax */
@@ -79,17 +136,29 @@ body::before {
   height: 100%;
   background-color: var(--pikachu-yellow);
   border-radius: 50%;
-  animation:
-    particle-fade-in 1s ease-out forwards,
+  animation: particle-fade-in 1s ease-out forwards,
     particle-glow 5s ease-in-out infinite;
 }
 
-/* Penundaan animasi glow */
-.p1 > div { animation-delay: 0s, 0.5s; }
-.p2 > div { animation-delay: 0s, 2.0s; }
-.p3 > div { animation-delay: 0s, 3.5s; }
-.p4 > div { animation-delay: 0s, 4.8s; }
+/* Light mode particles - more subtle */
+.light .particle > div {
+  background-color: rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.1);
+}
 
+/* Penundaan animasi glow */
+.p1 > div {
+  animation-delay: 0s, 0.5s;
+}
+.p2 > div {
+  animation-delay: 0s, 2s;
+}
+.p3 > div {
+  animation-delay: 0s, 3.5s;
+}
+.p4 > div {
+  animation-delay: 0s, 4.8s;
+}
 
 /* ===== Styling Umum ===== */
 /* Saran: Nanti pelan-pelan pindahkan padding ini ke class utility Tailwind
@@ -103,15 +172,20 @@ section {
 .footer {
   text-align: center;
   padding: 1rem;
-  background-color: rgba(14, 14, 14, 0.95);
+  background-color: var(--footer-bg);
   font-size: 0.9rem;
-  color: #999;
+  color: var(--footer-text);
   margin-top: 2rem;
 }
 
 /* ===== Kelas Utilitas Custom ===== */
 .loading-text {
-  background: linear-gradient(90deg, transparent, var(--pikachu-yellow), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pikachu-yellow),
+    transparent
+  );
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -141,7 +215,8 @@ section {
 
 /* ===== Definisi Animasi (Keyframes) ===== */
 @keyframes gridPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: translateX(0px);
   }
@@ -152,17 +227,26 @@ section {
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 @keyframes particle-fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes particle-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.4;
     box-shadow: 0 0 4px var(--pikachu-yellow);
   }
@@ -227,21 +311,75 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a; /* Warna background gelap */
+  background: #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--pikachu-yellow); /* Warna kuning abang */
+  background: var(--pikachu-yellow);
   border-radius: 5px;
-  border: 2px solid #0a0a0a; /* Kasih border biar ada jarak */
+  border: 2px solid #0a0a0a;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e6c200; /* Warna pas di-hover agak gelap dikit */
+  background: #e6c200;
+}
+
+/* Light mode scrollbar */
+.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 2px solid #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 /* Warna Selection Teks (Pas teks di-blok) */
 ::selection {
   background: var(--pikachu-yellow);
   color: #000;
+}
+
+.light ::selection {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+/* ===== PROFESSIONAL LIGHT MODE ENHANCEMENTS ===== */
+
+/* Subtle depth for light mode elements */
+.light .loading-text {
+  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced light mode animations */
+.light @keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.light @keyframes particle-glow {
+  0%,
+  100% {
+    opacity: 0.15;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.1);
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 16px rgba(37, 99, 235, 0.15);
+  }
 }

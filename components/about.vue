@@ -208,6 +208,11 @@ onBeforeUnmount(() => {
   font-weight: 500;
 }
 
+/* Light mode subtitle */
+.light .subtitle {
+  color: #2563eb;
+}
+
 .intro-text {
   flex: 1;
 }
@@ -226,6 +231,14 @@ onBeforeUnmount(() => {
   margin-bottom: 1.5rem;
 }
 
+/* Light mode name and bio */
+.light .highlight-name {
+  color: #2563eb;
+}
+.light .bio {
+  color: #475569;
+}
+
 .quote {
   background: rgba(255, 255, 255, 0.03);
   border-left: 3px solid var(--pikachu-yellow);
@@ -233,6 +246,13 @@ onBeforeUnmount(() => {
   margin-bottom: 2rem;
   font-style: italic;
   color: rgb(209, 213, 219);
+}
+
+/* Light mode quote */
+.light .quote {
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid #2563eb;
+  color: #475569;
 }
 
 .intro-photo {
@@ -255,6 +275,12 @@ onBeforeUnmount(() => {
   border: 4px solid var(--bg-dark);
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
   transition: transform 0.4s ease-out;
+}
+
+/* Light mode photo border and shadow */
+.light .intro-photo img {
+  border-color: #ffffff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 .intro-photo:hover img {
   transform: scale(1.1);
@@ -322,6 +348,27 @@ onBeforeUnmount(() => {
   box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
 }
 
+/* Light mode buttons */
+.light .btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border: 2px solid transparent;
+}
+.light .btn-primary:hover {
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+.light .btn-secondary {
+  color: #475569;
+  border: 2px solid #cbd5e1;
+}
+.light .btn-secondary:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+}
+
 .stat-item {
   position: relative;
   background: rgba(255, 255, 255, 0.03);
@@ -334,6 +381,17 @@ onBeforeUnmount(() => {
 .stat-item:hover {
   transform: translateY(-5px);
   border-color: var(--pikachu-yellow);
+}
+
+/* Light mode stat cards */
+.light .stat-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.light .stat-item:hover {
+  border-color: #2563eb;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
 }
 .stat-icon-wrapper {
   color: var(--pikachu-yellow);
@@ -355,6 +413,14 @@ onBeforeUnmount(() => {
 .stat-desc {
   font-size: 0.875rem;
   color: rgb(156, 163, 175);
+}
+
+/* Light mode stat text */
+.light .stat-title {
+  color: #475569;
+}
+.light .stat-desc {
+  color: #64748b;
 }
 .stat-arrow {
   position: absolute;

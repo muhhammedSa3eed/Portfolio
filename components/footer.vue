@@ -115,3 +115,76 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
+
+<style scoped>
+/* ===== PROFESSIONAL LIGHT MODE FOOTER STYLES ===== */
+
+.light footer {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  color: #475569;
+  border-top: 1px solid #e2e8f0;
+}
+
+.light footer .absolute {
+  background: linear-gradient(to right, transparent, #2563eb, transparent);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+.light footer h2 {
+  color: #1a202c;
+}
+
+.light footer h2:hover {
+  color: #2563eb !important;
+  filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.4));
+}
+
+.light footer p {
+  color: #64748b;
+}
+
+.light footer ul li a {
+  color: #64748b;
+}
+
+.light footer ul li a:hover {
+  color: #2563eb !important;
+}
+
+.light footer .flex.gap-6 a {
+  background: rgba(37, 99, 235, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.light footer .flex.gap-6 a:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: #2563eb;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+}
+
+.light footer .flex.gap-6 a img {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(8%) saturate(876%)
+    hue-rotate(182deg) brightness(95%) contrast(92%);
+}
+
+.light footer .flex.gap-6 a:hover img {
+  filter: brightness(0) saturate(100%) invert(37%) sepia(93%) saturate(1265%)
+    hue-rotate(213deg) brightness(95%) contrast(99%);
+}
+
+.light footer .border-t {
+  border-color: #e2e8f0;
+}
+
+.light footer .text-gray-500 {
+  color: #64748b;
+}
+
+.light footer .text-yellow-400 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+</style>
