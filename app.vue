@@ -17,7 +17,6 @@
 
     <LazyPortfolio />
     <LazyContact />
-    <LazyFooter />
 
     <SpeedInsights />
   </main>
@@ -30,9 +29,9 @@ useHead({
     {
       name: "description",
       content:
-        "Welcome to my portfolio website! I am Ali Nour, a passionate Backend Developer specializing in building robust and scalable web applications.",
+        "Welcome to my portfolio website! I am Mohamed Saied , a passionate frontend developer specializing in creating stunning and user-friendly web applications.",
     },
-    { property: "og:title", content: "Ali Nour - Portfolio" },
+    { property: "og:title", content: "Mohamed Saied - Portfolio" },
     {
       property: "og:description",
       content: "Check out my latest projects and skills.",
@@ -59,9 +58,6 @@ const LazyPortfolio = defineAsyncComponent(() =>
 );
 const LazyContact = defineAsyncComponent(() =>
   import("~/components/contact.vue")
-);
-const LazyFooter = defineAsyncComponent(() =>
-  import("~/components/footer.vue")
 );
 
 // --- LOGIC PARTIKEL (OPTIMIZED) ---

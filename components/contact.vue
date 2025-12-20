@@ -106,45 +106,6 @@
             </p>
           </form>
         </div>
-
-        <div class="card-glass guestbook-card">
-          <div class="column-header">
-            <div class="icon-wrapper">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="column-title">Guestbook</h3>
-          </div>
-          <p class="guestbook-desc">
-            Leave a comment using your GitHub account!
-          </p>
-
-          <div class="giscus-wrapper">
-            <ClientOnly>
-              <Giscus
-                id="comments"
-                repo="alin00r/alin00r"
-                repoId="R_kgDOHQm2Lw"
-                category="Announcements"
-                categoryId="DIC_kwDOHQm2L84CzgWM"
-                mapping="pathname"
-                strict="0"
-                reactionsEnabled="1"
-                emitMetadata="0"
-                inputPosition="top"
-                theme="dark_dimmed"
-                lang="en"
-                loading="lazy"
-              />
-            </ClientOnly>
-          </div>
-        </div>
       </div>
 
       <div class="bottom-grid">

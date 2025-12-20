@@ -43,8 +43,8 @@
 
     <div class="footer-bottom">
       <p>
-        &copy; {{ currentYear }} <span class="highlight">Ali nour</span>. All
-        Rights Reserved.
+        &copy; {{ currentYear }} <span class="highlight">Mohamed Saied</span>.
+        All Rights Reserved.
       </p>
       <p class="credits">Built with Vue.js & Nuxt</p>
     </div>
@@ -52,37 +52,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const currentYear = new Date().getFullYear();
 
 const socialLinks = ref([
   {
-    name: 'Github',
-    href: 'https://github.com/alin00r',
-    icon: '/github.svg',
+    name: "Github",
+    href: "https://github.com/alin00r",
+    icon: "/github.svg",
   },
   {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/alinourr/',
-    icon: '/linkedin.svg',
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/alinourr/",
+    icon: "/linkedin.svg",
   },
   {
-    name: 'Instagram',
-    href: 'https://instagram.com/alinoourr',
-    icon: '/instagram.svg',
+    name: "Instagram",
+    href: "https://instagram.com/alinoourr",
+    icon: "/instagram.svg",
   },
 ]);
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ behavior: "smooth" });
   }
 };
 
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 </script>
 
@@ -126,7 +126,7 @@ const scrollToTop = () => {
 
 /* Brand */
 .brand-logo {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--text-white);
