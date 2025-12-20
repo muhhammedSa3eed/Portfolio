@@ -14,6 +14,7 @@
     <Navbar />
     <Home />
     <About />
+    <GithubStats />
 
     <LazyPortfolio />
     <LazyContact />
@@ -51,6 +52,7 @@ import "~/assets/styles.css";
 import Navbar from "~/components/navbar.vue";
 import Home from "~/components/home.vue";
 import About from "~/components/about.vue";
+import GithubStats from "~/components/github-stats.vue";
 
 // === LAZY LOAD (Optimasi Loading) ===
 const LazyPortfolio = defineAsyncComponent(() =>

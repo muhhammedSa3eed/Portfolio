@@ -120,6 +120,7 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 const menuItems = [
   { section: "home", label: "Home" },
   { section: "about", label: "About" },
+  { section: "github-stats", label: "GitHub Activity" },
   { section: "portofolio", label: "Portfolio" },
   { section: "contact", label: "Contact" },
 ];
