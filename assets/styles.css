@@ -25,7 +25,7 @@ body {
   --bg-light: #ffffff;
   --navbar-bg: rgba(31, 41, 55, 0.4);
   --navbar-border: rgba(255, 255, 255, 0.05);
-  --mobile-menu-bg: rgba(31, 41, 55, 0.25);
+  --mobile-menu-bg: rgba(31, 41, 55, 1);
   --mobile-menu-border: rgba(255, 255, 255, 0.1);
   --text-secondary: #d1d5db;
   --footer-bg: rgba(14, 14, 14, 0.95);
@@ -111,6 +111,7 @@ body::before {
     ),
     linear-gradient(90deg, rgba(148, 163, 184, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
+  animation: lightGridPulse 8s ease-in-out infinite;
 }
 
 /* Partikel Parallax */
@@ -144,6 +145,8 @@ body::before {
 .light .particle > div {
   background-color: rgba(37, 99, 235, 0.15);
   box-shadow: 0 0 8px rgba(37, 99, 235, 0.1);
+  animation: particle-fade-in 1s ease-out forwards,
+    lightParticleGlow 5s ease-in-out infinite;
 }
 
 /* Penundaan animasi glow */
@@ -361,8 +364,7 @@ section {
   animation: shimmer 2s infinite;
 }
 
-/* Enhanced light mode animations */
-.light @keyframes gridPulse {
+@keyframes lightGridPulse {
   0%,
   100% {
     opacity: 0.15;
@@ -372,7 +374,7 @@ section {
   }
 }
 
-.light @keyframes particle-glow {
+@keyframes lightParticleGlow {
   0%,
   100% {
     opacity: 0.15;
