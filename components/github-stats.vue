@@ -92,7 +92,7 @@
             Top Languages
           </h3>
           <img
-            :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&hide_border=true&bg_color=${
+            :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&hide_border=true&hide_title=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
             }&title_color=2563eb&text_color=${isDark ? 'ffffff' : '#000000'}`"
             alt="Top Languages"
@@ -237,7 +237,7 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 0.75rem;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: normal;
   color: var(--pikachu-yellow);
   margin-bottom: 1.5rem;
   width: 100%;
@@ -360,7 +360,7 @@ onBeforeUnmount(() => {
 
 .light .card-title {
   color: #1e293b;
-  font-weight: 700;
+  font-weight: normal;
 }
 
 .light .icon {
