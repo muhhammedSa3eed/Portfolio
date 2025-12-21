@@ -41,9 +41,11 @@
           <img
             :src="`https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&hide_border=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
-            }&title_color=2563eb&icon_color=06b6d4&text_color=${
-              isDark ? 'c9d1d9' : '24292f'
-            }&ring_color=2563eb&text_bold=true`"
+            }&title_color=${isDark ? 'ffa500' : '2563eb'}&icon_color=${
+              isDark ? 'ffa500' : '2563eb'
+            }&text_color=${isDark ? 'ffffff' : '000000'}&ring_color=${
+              isDark ? 'ffa500' : '2563eb'
+            }`"
             alt="GitHub Stats"
             class="stats-img"
           />
@@ -66,11 +68,11 @@
             :src="`https://nirzak-streak-stats.vercel.app?user=${githubUsername}&hide_border=true&background=${
               isDark ? '00000000' : 'ffffff'
             }&ring=2563eb&fire=f97316&currStreakLabel=2563eb&dates=${
-              isDark ? 'c9d1d9' : '57606a'
-            }&stroke=${isDark ? '444c56' : 'd0d7de'}&sideNums=${
-              isDark ? 'c9d1d9' : '24292f'
-            }&sideLabels=${isDark ? '8b949e' : '57606a'}&currStreakNum=${
-              isDark ? 'c9d1d9' : '24292f'
+              isDark ? 'E5E7EB' : '6b7280'
+            }&stroke=${isDark ? 'E5E7EB' : '9ca3af'}&sideNums=${
+              isDark ? 'F3F4F6' : '1f2937'
+            }&sideLabels=${isDark ? 'D1D5DB' : '4b5563'}&currStreakNum=${
+              isDark ? 'FFFFFF' : '1f2937'
             }`"
             alt="GitHub Streak"
             class="stats-img"
@@ -92,7 +94,7 @@
           <img
             :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&hide_border=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
-            }&title_color=2563eb&text_color=${isDark ? 'c9d1d9' : '24292f'}`"
+            }&title_color=2563eb&text_color=${isDark ? 'ffffff' : '#000000'}`"
             alt="Top Languages"
             class="stats-img"
           />
@@ -108,21 +110,17 @@ import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 const statsRef = ref(null);
 const githubUsername = "muhhammedSa3eed";
 let observer = null;
+let mutationObserver = null;
 
-// Detect theme (بنفترض إن عندك theme system)
-const isDark = computed(() => {
-  if (typeof document !== "undefined") {
-    return !document.documentElement.classList.contains("light");
-  }
-  return true;
-});
+const isDark = ref(true);
+
+const updateIsDark = () => {
+  isDark.value = !document.documentElement.classList.contains("light");
+};
 
 const handleStreakError = (event) => {
   console.log("Streak stats loading failed, trying fallback...");
-  // Fallback to another service
-  event.target.src = `https://github-readme-streak-stats.herokuapp.com/?user=${
-    githubUsername.value
-  }&theme=${
+  event.target.src = `https://github-readme-streak-stats.herokuapp.com/?user=${githubUsername}&theme=${
     isDark.value ? "dark" : "light"
   }&hide_border=true&background=00000000&ring=${
     isDark.value ? "FFD700" : "667EEA"
@@ -130,6 +128,26 @@ const handleStreakError = (event) => {
 };
 
 onMounted(() => {
+  // Initial check
+  updateIsDark();
+
+  // Set up MutationObserver to watch for class changes
+  mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        updateIsDark();
+      }
+    });
+  });
+
+  mutationObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
   observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -148,6 +166,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   if (observer) observer.disconnect();
+  if (mutationObserver) mutationObserver.disconnect();
 });
 </script>
 
