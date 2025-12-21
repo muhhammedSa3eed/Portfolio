@@ -208,7 +208,7 @@ const techStack = ref([
   { name: "CSS3", iconUrl: "https://cdn.svgporn.com/logos/css-3.svg" },
   {
     name: "Tailwind CSS",
-    iconUrl: "https://cdn.svgporn.com/logos/tailwindcss.svg",
+    iconUrl: "https://cdn.svgporn.com/logos/tailwindcss-icon.svg",
   },
   {
     name: "BootStrap",
@@ -224,7 +224,7 @@ const techStack = ref([
   },
 
   { name: "React JS", iconUrl: "https://cdn.svgporn.com/logos/react.svg" },
-  { name: "Next.js", iconUrl: "https://cdn.svgporn.com/logos/nextjs.svg" },
+  { name: "Next.js", iconUrl: "https://cdn.svgporn.com/logos/nextjs-icon.svg" },
   {
     name: "Angular",
     iconUrl: "https://cdn.svgporn.com/logos/angular-icon.svg",
