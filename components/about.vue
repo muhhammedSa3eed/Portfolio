@@ -28,7 +28,7 @@
           </div>
           <div class="action-buttons animated-item">
             <a
-              href="https://drive.google.com/file/d/1esyHFnUTcYi7wJC6wATknwfDwTTcqjzK/view?usp=sharing"
+              href="https://drive.google.com/file/d/1cSJ9NPYdszZcbwf-uN-4QMTH8ClPQMtc/view?usp=sharing"
               download
               class="btn btn-primary"
               target="_blank"
