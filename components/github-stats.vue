@@ -47,7 +47,7 @@
               isDark ? 'ffa500' : '2563eb'
             }&text_color=${isDark ? 'ffffff' : '000000'}&ring_color=${
               isDark ? 'ffa500' : '2563eb'
-            }`"
+            }&t=${timestamp.value}`"
             alt="GitHub Stats"
             class="stats-img"
           />
@@ -76,7 +76,7 @@
               isDark ? 'F3F4F6' : '1f2937'
             }&sideLabels=${isDark ? 'D1D5DB' : '4b5563'}&currStreakNum=${
               isDark ? 'FFFFFF' : '1f2937'
-            }`"
+            }&t=${timestamp.value}`"
             alt="GitHub Streak"
             class="stats-img"
             loading="lazy"
@@ -98,7 +98,9 @@
             v-if="ready"
             :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&hide_border=true&hide_title=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
-            }&title_color=2563eb&text_color=${isDark ? 'ffffff' : '#000000'}`"
+            }&title_color=2563eb&text_color=${
+              isDark ? 'ffffff' : '#000000'
+            }&t=${timestamp.value}`"
             alt="Top Languages"
             class="stats-img"
           />
@@ -118,6 +120,13 @@ let mutationObserver = null;
 
 const isDark = ref(true);
 const ready = ref(false);
+const timestamp = ref(Date.now());
+
+let refreshInterval = null;
+
+const refreshStats = () => {
+  timestamp.value = Date.now();
+};
 
 const updateIsDark = () => {
   if (typeof document !== "undefined") {
@@ -170,11 +179,17 @@ onMounted(() => {
   if (statsRef.value) {
     observer.observe(statsRef.value);
   }
+
+  // Auto-refresh stats every 5 minutes
+  refreshInterval = setInterval(() => {
+    refreshStats();
+  }, 300000); // 5 minutes
 });
 
 onBeforeUnmount(() => {
   if (observer) observer.disconnect();
   if (mutationObserver) mutationObserver.disconnect();
+  if (refreshInterval) clearInterval(refreshInterval);
 });
 </script>
 
