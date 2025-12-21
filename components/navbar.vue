@@ -150,6 +150,7 @@ const { theme, setTheme } = useTheme();
 const menuItems = [
   { section: "home", label: "Home" },
   { section: "about", label: "About" },
+  { section: "github-stats", label: "Github Activity" },
   { section: "portofolio", label: "Portfolio" },
   { section: "contact", label: "Contact" },
 ];
