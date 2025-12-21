@@ -420,6 +420,7 @@ onBeforeUnmount(() => {
   gap: 0.75rem;
   margin-bottom: 2.5rem;
   justify-content: flex-start;
+  max-width: 500px;
 }
 .tech-tag {
   padding: 0.5rem 1rem;
