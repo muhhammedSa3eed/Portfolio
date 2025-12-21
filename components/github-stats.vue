@@ -19,6 +19,7 @@
           </h3>
           <div class="contributions-wrapper">
             <img
+              v-if="ready"
               :src="`https://ghchart.rshah.org/${
                 isDark ? '' : '2196f3/'
               }${githubUsername}`"
@@ -39,6 +40,7 @@
             Statistics
           </h3>
           <img
+            v-if="ready"
             :src="`https://github-readme-stats.vercel.app/api?username=${githubUsername}&show_icons=true&hide_border=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
             }&title_color=${isDark ? 'ffa500' : '2563eb'}&icon_color=${
@@ -65,6 +67,7 @@
             Streak
           </h3>
           <img
+            v-if="ready"
             :src="`https://nirzak-streak-stats.vercel.app?user=${githubUsername}&hide_border=true&background=${
               isDark ? '00000000' : 'ffffff'
             }&ring=2563eb&fire=f97316&currStreakLabel=2563eb&dates=${
@@ -92,6 +95,7 @@
             Top Languages
           </h3>
           <img
+            v-if="ready"
             :src="`https://github-readme-stats.vercel.app/api/top-langs/?username=${githubUsername}&layout=compact&hide_border=true&hide_title=true&bg_color=${
               isDark ? '00000000' : 'ffffff'
             }&title_color=2563eb&text_color=${isDark ? 'ffffff' : '#000000'}`"
@@ -113,9 +117,12 @@ let observer = null;
 let mutationObserver = null;
 
 const isDark = ref(true);
+const ready = ref(false);
 
 const updateIsDark = () => {
-  isDark.value = !document.documentElement.classList.contains("light");
+  if (typeof document !== "undefined") {
+    isDark.value = !document.documentElement.classList.contains("light");
+  }
 };
 
 const handleStreakError = (event) => {
@@ -130,6 +137,7 @@ const handleStreakError = (event) => {
 onMounted(() => {
   // Initial check
   updateIsDark();
+  ready.value = true;
 
   // Set up MutationObserver to watch for class changes
   mutationObserver = new MutationObserver((mutations) => {

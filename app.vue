@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+const { theme } = useTheme();
+
 useHead({
   title: "Mohamed Saied - Frontend Developer",
   meta: [
@@ -42,9 +44,10 @@ useHead({
   ],
   htmlAttrs: {
     lang: "en",
+    class: theme,
   },
 });
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { SpeedInsights } from "@vercel/speed-insights/nuxt";
 import "~/assets/styles.css";
 
